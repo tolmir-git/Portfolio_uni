@@ -1,157 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Myroslav Kuzmych - IT Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
-    <style>
-        /* ============================================
-           CSS RESET AND BASE STYLES
-           ============================================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!DOCTYPE HTML>
+    <head>
+        <title>My IT Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            /*Navbar and mains CSS*/
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }
+            header{
+                position:sticky;
+            }
+            .nav{
+                text-align: center;
+                background: linear-gradient(#3f64e9, #1824a9);
+                padding: 25px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+                
+            }
+            .nav a {
+                color: white;
+                margin: 0 15px;
+                text-decoration: none;
+                padding:15px;
+                font-size: 1.2rem;
+            }
+            .nav a:hover {
+                text-decoration: bold;
+                background-color: rgba(240, 255, 255, 0.2);
+                border-radius: 10px;
+                border:0px;
+                transition: 0.3s;
+            }
+            .arrow {
+                border: solid white;
+                border-width:0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                margin-top:5px;
+                margin-left: 0px;
+                margin-right: 0px;
 
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #f59e0b;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-light: #f9fafb;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-            --border-radius: 8px;
-            --transition-speed: 0.3s;
-        }
+            }
+            .right {
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                display:none;
+                position:absolute;
+                
+            }
+            .left {
+                transform: rotate(135deg);
+                -webkit-transform: rotate(135deg);
+                display:none;
+                position: absolute;
+                margin-left: -9px;
+            }
+            
 
-        /* 1. Font specification using Google Fonts */
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-        }
+            /* Maybe for later, if I ever need the h1 tag back in the nav bar
+            nav h1{
+                font-size: 2rem;
+                margin-bottom: 10px;
+                padding: 20px; 
+                color: white;
+            }
+            nav h1:hover{
+                text-decoration: bold;
+                background-color: rgba(240, 255, 255, 0.2);
+                border-radius: 10px;
+                border:0px;
+            }
+            */
 
-        /* 2. Colors including semi-transparent */
-        .overlay {
-            background-color: rgba(37, 99, 235, 0.85); /* Semi-transparent blue */
-        }
 
-        /* ============================================
-           NAVIGATION STYLES
-           ============================================ */
-        nav {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* 16. Gradient */
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-md); /* 3. Shadow */
-        }
+            /*Navbar CSS End*/
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
 
-        /* 7. User action pseudo class - hover */
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius); /* 15. Rounded corners */
-            transition: all var(--transition-speed); /* 18. Transitions */
-            position: relative;
-        }
-
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px); /* 17. Transforms */
-        }
-
-        nav a:active {
-            transform: translateY(0);
-        }
-
-        /* 6. Pseudo elements with generated content */
-        nav a::before {
-            content: "→";
-            position: absolute;
-            left: -20px;
-            opacity: 0;
-            transition: all var(--transition-speed);
-            font-size: 1.2rem;
-        }
-
-        nav a:hover::before {
-            left: -25px;
-            opacity: 1;
-        }
-
-        /* ============================================
-           MAIN CONTAINER STYLES
-           ============================================ */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* ============================================
-           PAGE SECTIONS
-           ============================================ */
-        section {
-            background: var(--white);
-            margin: 2rem 0;
-            padding: 3rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg); /* 3. Shadow */
-            border: 2px solid transparent; /* 14. Border */
-            transition: all var(--transition-speed);
-        }
-
-        section:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-5px); /* 17. Transforms */
-        }
-
-        /* Hide all sections except home by default */
-        section {
+            /*section CSS*/
+            section{
+                background:azure;
+                margin:2rem;
+                padding:3rem;
+                border-radius:10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border:2px solid transparent;
+                transition:all 0.3s ease-in-out;
+            }
+            section:hover{
+                border:2px solid #3f64e9;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+            section {
             display: none;
         }
-
-        section:first-of-type {
-            display: block;
-        }
-
         section:target {
             display: block;
         }
-
-        /* 8. Child combinator - direct children */
         section > h2 {
             color: var(--primary-color);
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* 3. Shadow */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
             position: relative;
             padding-bottom: 1rem;
         }
 
-        /* 4. Text effects */
         section > h2::after {
             content: "";
             position: absolute;
@@ -159,25 +122,90 @@
             left: 0;
             width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), transparent);
-            border-radius: var(--border-radius);
+            background: linear-gradient(90deg, white, transparent);
+            border-radius: 5px;
         }
+            /*section CSS End*/
 
-        /* ============================================
-           HERO SECTION - FIXED CONTRAST
-           ============================================ */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            text-align: center;
-            padding: 4rem 2rem;
-            border-radius: var(--border-radius);
-            position: relative;
-            overflow: hidden;
-        }
 
-        /* 19. Animations */
-        @keyframes float {
+
+
+            /*text animation (container per say) in home page */
+        #container {
+            color:white;
+            text-transform: uppercase;
+            font-size:36px;
+            font-weight:bold; 
+            width:100%;
+            bottom:45%;
+            display:block;
+            text-align:center;
+            }
+
+        #flip {
+            height:50px;
+            overflow:hidden;
+            }
+
+        #flip > div > div {
+            color:#fff;
+            padding:0px 20px;
+            height:45px;
+            margin-bottom:45px;
+            display:inline-block;
+            }
+
+        #flip div:first-child {
+            animation: show 5s linear infinite;
+            }
+
+        #flip div div {
+            background:#42c58a;
+            }
+        #flip div:first-child div {
+            background:#4ec7f3;
+            }
+        #flip div:last-child div {
+            background:#DC143C;
+            }
+
+        @keyframes show {
+            0% {margin-top:-270px;}
+            5% {margin-top:-180px;}
+            33% {margin-top:-180px;}
+            38% {margin-top:-90px;}
+            66% {margin-top:-90px;}
+            71% {margin-top:0px;}
+            99.99% {margin-top:0px;}
+            100% {margin-top:-270px;}
+            }
+            /*text animation in home page End*/
+
+
+            /* Text and paragraph (at least on the home page)*/
+
+            p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                color: #333;
+                margin-top: 10px;
+            }
+            .name_container{
+                text-align: center;
+                background: linear-gradient(135deg, #3f64e9, #1824a9);
+                border:2px;
+                border-radius:15px;
+                margin:auto;
+                margin-bottom: 20px;
+                padding:4rem 2rem;
+                color:white;
+            }
+            .name_container h2{
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                animation: float 3s ease-in-out infinite;
+            }
+            @keyframes float {
             0%, 100% {
                 transform: translateY(0);
             }
@@ -185,848 +213,89 @@
                 transform: translateY(-20px);
             }
         }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: float 3s ease-in-out infinite; /* 19. Animation */
-        }
-
-        /* FIXED: Increased contrast for subtitle */
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            color: #ffffff; /* Pure white for better contrast */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Added shadow for readability */
-            font-weight: 500; /* Slightly bolder */
-        }
-
-        /* ============================================
-           SIDEBAR STYLES
-           ============================================ */
-        .sidebar {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            margin-top: 2rem;
-            border-left: 4px solid var(--accent-color); /* 14. Border */
-        }
-
-        .sidebar h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        /* 5. Attribute selectors */
-        a[href^="https://github.com"] {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        a[href^="mailto:"] {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        a[href^="tel:"] {
-            color: var(--secondary-color);
-        }
-
-        /* ============================================
-           SKILLS GRID - FIXED CENTERING - 2x2 LAYOUT
-           ============================================ */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 2rem auto;
-            max-width: 900px;
-            justify-items: center;
-        }
-
-        .skill-card {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            border: 2px solid transparent;
-            transition: all var(--transition-speed);
-            width: 100%; /* Full width within grid cell */
-            max-width: 350px; /* Prevent cards from being too wide */
-        }
-
-        .skill-card:hover {
-            border-color: var(--accent-color);
-            box-shadow: var(--shadow-md);
-            transform: scale(1.05); /* 17. Transforms */
-        }
-
-        /* 9. Structural selectors - first-child */
-        .skill-card:first-child {
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
-        }
-
-        /* 11. Nth pseudo class - FIXED PYRAMID LAYOUT */
-        .skill-card:nth-child(2n) {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-        }
-
-        .skill-card:nth-child(3n) {
-            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-        }
-
-        /* Special layout for 3 items - pyramid style */
-        .skills-grid-3 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .skills-grid-3 .skill-card:first-child {
-            grid-column: 1 / -1; /* First card spans both columns */
-            justify-self: center;
-            max-width: 350px;
-        }
-
-        .skill-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            font-family: 'Roboto Mono', monospace; /* 1. Font specification */
-        }
-
-        /* ============================================
-           PROJECT CARDS
-           ============================================ */
-        .project-card {
-            background: var(--white);
-            padding: 2rem;
-            margin: 1.5rem 0;
-            border-radius: var(--border-radius);
-            border-left: 5px solid var(--primary-color);
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-speed);
-        }
-
-        .project-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateX(10px);
-            border-left-color: var(--accent-color);
-        }
-
-        .project-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .project-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1rem 0;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .tag {
-            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
-            color: var(--secondary-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all var(--transition-speed);
-        }
-
-        .tag:hover {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            transition: all var(--transition-speed);
-            font-size: 1rem;
-        }
-        .project-link a{
-            color: white;
-        }
-
-        .project-link:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-            color: yellow;
-        }
-
-        /* ============================================
-           BLOG POSTS
-           ============================================ */
-        .blog-post {
-            background: var(--white);
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: var(--border-radius);
-            border-left: 5px solid var(--primary-color);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .blog-post h3 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        /* ============================================
-           FORM STYLES
-           ============================================ */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        /* 13. Relational selector - adjacent sibling */
-        label + input,
-        label + textarea,
-        label + select {
-            margin-top: 0.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e5e7eb;
-            border-radius: var(--border-radius);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            transition: all var(--transition-speed);
-        }
-
-        /* 12. Validity pseudo class */
-        .form-group input:valid {
-            border-color: #10b981;
-        }
-
-        .form-group input:invalid:not(:placeholder-shown) {
-            border-color: #ef4444;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .form-group input:required::placeholder {
-            color: var(--text-light);
-        }
-
-        /* 10. Negation pseudo class */
-        .form-group input:not([type="submit"]) {
-            background-color: var(--white);
-        }
-
-        button[type="submit"] {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-speed);
-            box-shadow: var(--shadow-md);
-        }
-
-        button[type="submit"]:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        button[type="submit"]:active {
-            transform: translateY(0);
-        }
-
-        /* ============================================
-           WORK HISTORY
-           ============================================ */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 2rem;
-            border-left: 3px solid var(--primary-color);
-            padding-left: 2rem;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 15px;
-            height: 15px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px var(--white);
-        }
-
-        .timeline-item h3 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        /* ============================================
-           20. SPECIFICITY DEMONSTRATION
-           Using different levels of specificity
-           ============================================ */
-        
-        /* Low specificity - element selector */
-        p {
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        /* Medium specificity - class selector */
-        .highlight {
-            background-color: #fef3c7;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-        }
-
-        /* Higher specificity - multiple classes */
-        .hero .highlight {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: var(--white);
-        }
-
-        /* Highest specificity - ID selector (used sparingly) */
-        #main-header {
-            font-size: 3rem;
-        }
-
-        /* ============================================
-           RESPONSIVE DESIGN - MEDIA QUERIES (Part C)
-           ============================================ */
-        
-        /* Tablet styles */
-        @media screen and (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-                padding: 0 1rem;
-            }
-
-            nav a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 2rem;
-            }
-
-            section > h2 {
-                font-size: 2rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                max-width: 700px;
-            }
-
-            .skills-grid-3 {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid-3 .skill-card:first-child {
-                grid-column: 1;
-            }
-
-            .container {
-                padding: 1rem;
-            }
-        }
-
-        /* Mobile styles */
-        @media screen and (max-width: 480px) {
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-            }
-
-            nav a {
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            section {
-                padding: 1.5rem;
-                margin: 1rem 0;
-            }
-
-            section > h2 {
-                font-size: 1.5rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid-3 {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline {
-                padding-left: 1rem;
-            }
-
-            .timeline-item {
-                padding-left: 1.5rem;
-            }
-
-            button[type="submit"] {
-                width: 100%;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            nav {
-                display: none;
-            }
-
-            section {
-                page-break-inside: avoid;
-                box-shadow: none;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <!-- HOME PAGE (MAIN PAGE) -->
-        <section id="home">
-            <div class="hero">
-                <h1 id="main-header">Myroslav Kuzmych</h1>
-                <p>Aspiring IT Professional | Computer Science Student | Full-Stack Developer</p>
-            </div>
-
-            <article>
-                <h2>Welcome to My Portfolio</h2>
-                <p>Hello! I'm Myroslav, a dedicated and driven individual seeking opportunities in IT. Currently pursuing <span class="highlight">Computer Science at Westminster University</span>, I bring excellent teamwork skills, a positive mindset, and a strong foundation in programming and IT fundamentals.</p>
-                
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h3>Programming</h3>
-                        <p>Python, JavaScript, Java, HTML5, CSS3, React, Node.js</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Languages</h3>
-                        <p>English (Fluent), Ukrainian (Native), Russian (Fluent)</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Tools & Systems</h3>
-                        <p>Git, GitHub, MS Office, Computer Troubleshooting</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Methodologies</h3>
-                        <p>Agile, PRINCE2, Waterfall Project Management</p>
-                    </div>
+        </style>
+    </head>
+    <body>
+        <header>
+            
+            <nav class="nav">
+                <i class="arrow right" id="arrow"></i><a href="#Me" id="hoverlink">Myroslav Kuzmych</a><i class="arrow left" id="arrow"></i>
+                <i class="arrow right" id="arrow"></i><a href="#portfolio" id="hoverlink">Portfolio</a><i class="arrow left" id="arrow"></i>
+                <i class="arrow right" id="arrow"></i><a href="#about" id="hoverlink">About</a><i class="arrow left" id="arrow"></i>
+                <i class="arrow right" id="arrow"></i><a href="#hobbies" id="hoverlink">Hobbies</a><i class="arrow left" id="arrow"></i>
+                <i class="arrow right" id="arrow"></i><a href="#blog" id="hoverlink">Blog</a><i class="arrow left" id="arrow"></i>
+                <i class="arrow right" id="arrow"></i><a href="#contact" id="hoverlink">Contact</a><i class="arrow left" id="arrow"></i>
+            </nav>
+
+        </header>
+        <main style="padding: 20px;"> 
+            <section id="Me">
+                <div class="name_container">
+                    <h2>Myroslav Kuzmych</h2>
+                    <div id=container>
+                        I am a
+                        <div id=flip>
+                            <div><div>passionate</div></div>
+                            <div><div>dedicated</div></div>
+                            <div><div>driven</div></div>
+                        </div>
+                        individual
+                        </div>
                 </div>
-            </article>
+                <article>
 
-            <!-- Sidebar with social media links -->
-            <aside class="sidebar">
-                <h3>Connect With Me</h3>
-                <div class="social-links">
-                    <p><strong>Email:</strong> <a href="mailto:mr.miricteam@gmail.com">mr.miricteam@gmail.com</a></p>
-                    <p><strong>Phone:</strong> <a href="tel:07759002979">07759 002979</a></p>
-                    <p><strong>Location:</strong> London, Newham, UK</p>
-                    <p><strong>GitHub:</strong> <a href="https://github.com/tolmir-git" target="_blank" rel="noopener">github.com/tolmir-git</a></p>
-                </div>
-            </aside>
-        </section>
-
-        <!-- PROJECTS PAGE -->
-        <section id="projects">
-            <article>
-                <h2>My Projects</h2>
-                <p>Here's a showcase of my work and contributions. Check out my <a href="https://github.com/tolmir-git" target="_blank" rel="noopener" style="color: var(--primary-color); font-weight: 600;">GitHub profile</a> for more!</p>
-
-                <!-- Project 1: Sharp Cyber Security Project -->
-                <div class="project-card">
-                    <h3>🔒 Sharp Cyber Security Project</h3>
-                    <div class="project-meta">
-                        <span>📅 2023-2024</span>
-                        <span>🏢 South Essex College</span>
-                    </div>
-                    <p>Comprehensive cyber security implementation securing 15 rooms with modern technologies and protocols. This project demonstrates my ability to design and implement enterprise-level security solutions.</p>
-                    <div class="project-tags">
-                        <span class="tag">Cyber Security</span>
-                        <span class="tag">Network Security</span>
-                        <span class="tag">Firewalls</span>
-                        <span class="tag">GDPR Compliance</span>
-                        <span class="tag">DDoS Protection</span>
-                    </div>
-                    <p><strong>Key Achievements:</strong></p>
-                    <ul>
-                        <li>Implemented reliable firewalls and protocols to prevent DDoS attacks</li>
-                        <li>Ensured GDPR compliance and Data Protection Act adherence</li>
-                        <li>Developed comprehensive cyber security and business policies</li>
-                        <li>Balanced security with usability and comfort</li>
-                    </ul>
-                </div>
-
-                <!-- Project 2: Virtual Machine Project -->
-                <div class="project-card">
-                    <h3>🖥️ Sharp Virtual Machine Showcase</h3>
-                    <div class="project-meta">
-                        <span>📅 2023-2024</span>
-                        <span>🏢 South Essex College</span>
-                    </div>
-                    <p>Created an artificial building environment showcasing hundreds of Sharp products using Virtual Machine technology, demonstrating advanced virtualization skills and architectural planning.</p>
-                    <div class="project-tags">
-                        <span class="tag">Virtual Machines</span>
-                        <span class="tag">System Architecture</span>
-                        <span class="tag">Product Showcase</span>
-                        <span class="tag">Security Design</span>
-                    </div>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Multi-layered architecture using various technologies and frameworks</li>
-                        <li>Comprehensive security implementation</li>
-                        <li>Strategic advertising and promotion planning</li>
-                        <li>Optimized for user engagement and page views</li>
-                    </ul>
-                </div>
-
-                <!-- Project 3: Group Website Development -->
-                <div class="project-card">
-                    <h3>🌐 Business Website Development</h3>
-                    <div class="project-meta">
-                        <span>📅 2025-Present</span>
-                        <span>🏢 Freelance/Team Projects</span>
-                    </div>
-                    <p>Leading and coordinating development of multiple business websites using modern web technologies. Managing full project lifecycle from planning to deployment and maintenance.</p>
-                    <div class="project-tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">React</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Project Management</span>
-                    </div>
-                    <p><strong>Responsibilities:</strong></p>
-                    <ul>
-                        <li>Client communication and requirements gathering</li>
-                        <li>Project planning, documentation, and task management</li>
-                        <li>Code development and implementation</li>
-                        <li>Deployment and production support</li>
-                        <li>Ongoing maintenance and troubleshooting</li>
-                    </ul>
-                    <a href="https://github.com/tolmir-git" class="project-link" target="_blank" rel="noopener">View on GitHub →</a>
-                </div>
-
-                <!-- Additional Projects Section -->
-                <div class="project-card">
-                    <h3>💻 More Projects on GitHub</h3>
-                    <p>I'm constantly working on new projects and contributing to open source. Visit my GitHub profile to see my latest work, including:</p>
-                    <div class="project-tags">
-                        <span class="tag">Python Scripts</span>
-                        <span class="tag">Web Applications</span>
-                        <span class="tag">API Development</span>
-                        <span class="tag">Database Design</span>
-                        <span class="tag">Testing & QA</span>
-                    </div>
-                    <a href="https://github.com/tolmir-git" class="project-link" target="_blank" rel="noopener">Explore My GitHub →</a>
-                </div>
-            </article>
-        </section>
-
-        <!-- ABOUT PAGE -->
-        <section id="about">
-            <article>
+                </article>
+            </section>
+            <section id="portfolio">
+                <h2>Portfolio</h2>
+                <ul>
+                    <li>Project 1: A responsive website for a local business.</li>
+                    <li>Project 2: An e-commerce platform for handmade crafts.</li>
+                    <li>Project 3: A personal blog about technology and programming.</li>
+                </ul>
+            </section>
+            <section id="about">
                 <h2>About Me</h2>
-                
-                <p>I'm a passionate <span class="highlight">Computer Science student</span> at Westminster University with a strong foundation in IT and software development. Born on December 14, 2005, I've dedicated myself to building a career in technology while developing valuable real-world skills.</p>
-
-                <h3>Education Journey</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>Westminster University (2024 - Present)</h3>
-                        <p><strong>Computer Science</strong> - Currently in 2nd year</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>South Essex College (2022 - 2024)</h3>
-                        <p><strong>IT Diploma</strong> - 3D course, completed 2nd year</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>Kyiv College of Hotel Management (2021 - 2023)</h3>
-                        <p><strong>Computer Engineering</strong> - Online studies</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>Brovary School Number 3 (2012 - 2021)</h3>
-                        <p><strong>Primary and Secondary Education</strong></p>
-                        <p>GCSE Results: Maths: 5, English: 5</p>
-                    </div>
-                </div>
-
-                <h3>Work Experience</h3>
-                <p>Over the past three years, I've gained an immense skillset in the hospitality sector, which has equipped me with:</p>
-                <ul>
-                    <li><strong>Networking & Communication:</strong> Spoken with thousands of clients, enhancing my interpersonal skills</li>
-                    <li><strong>Problem-Solving:</strong> Collaborated with hundreds of staff members to resolve customer issues</li>
-                    <li><strong>Attention to Detail:</strong> Developed precision essential for QA testing and data entry</li>
-                    <li><strong>Stress Resistance:</strong> Thrived in fast-paced environments requiring quick thinking and action</li>
-                </ul>
-
-                <h3>Core Skills</h3>
-                <div class="skills-grid-3">
-                    <div class="skill-card">
-                        <h3>Technical Skills</h3>
-                        <p>Python, Java, JavaScript, HTML5, CSS3, React, Node.js, MS Office Suite, Git & GitHub</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Soft Skills</h3>
-                        <p>Team Leadership, Communication, Problem Solving, Time Management, Adaptability</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Project Management</h3>
-                        <p>Agile, PRINCE2, Waterfall methodologies, Documentation, Task Management</p>
-                    </div>
-                </div>
-
-                <h3>Achievements</h3>
-                <ul>
-                    <li>Jack Petchey Achievement Award for studying and communicational excellence</li>
-                    <li>Participated in Maths and English competitions in Brovary</li>
-                    <li>Completed advanced cyber security and virtual machine projects at South Essex College</li>
-                    <li>Successfully managed multiple client website projects simultaneously</li>
-                </ul>
-            </article>
-        </section>
-
-        <!-- HOBBIES PAGE (BLOGS) -->
-        <section id="hobbies">
-            <article>
-                <h2>Hobbies & Interests</h2>
-
-                <!-- Blog Post 1 -->
-                <div class="blog-post">
-                    <h3>Building Secure Web Applications: Lessons from the Sharp Project</h3>
-                    <p class="blog-date">
-                        <time datetime="2024-06-15">Posted on June 15, 2024</time>
-                    </p>
-                    <p>During my time at South Essex College, I had the incredible opportunity to work on the Sharp cybersecurity project, which challenged me to secure 15 rooms using cutting-edge technologies. This experience taught me invaluable lessons about network security, GDPR compliance, and the importance of comprehensive security policies.</p>
-                    <p>One of the most significant challenges was implementing reliable firewalls and protocols to make the network impenetrable to DDoS attacks. I learned that security isn't just about the technical implementation—it's about understanding potential vulnerabilities and proactively addressing them. The project required me to balance security with usability, ensuring that while the rooms were protected, they remained comfortable and accessible for legitimate users.</p>
-                    <p>The experience of working with Data Protection Act regulations and GDPR laws gave me practical insight into the legal aspects of IT security. This knowledge is invaluable in today's digital landscape where data breaches can have severe consequences for both individuals and organizations.</p>
-                    <p><strong>Key Takeaways:</strong></p>
-                    <ul>
-                        <li>Security must be layered—no single solution is sufficient</li>
-                        <li>Understanding regulations like GDPR is as important as technical skills</li>
-                        <li>User experience should never be sacrificed for security</li>
-                        <li>Documentation and policies are crucial for maintaining security standards</li>
-                    </ul>
-                </div>
-
-                <!-- Blog Post 2 -->
-                <div class="blog-post">
-                    <h3>My Journey in Full-Stack Development: From Concept to Deployment</h3>
-                    <p class="blog-date">
-                        <time datetime="2025-01-20">Posted on January 20, 2025</time>
-                    </p>
-                    <p>Since 2023, I've been leading the development of several business websites, and the journey has been both challenging and rewarding. Working with HTML, CSS, JavaScript, React, and Node.js has given me a comprehensive understanding of modern web development.</p>
-                    <p>What I've learned is that successful web development goes far beyond just writing code. It requires constant communication with clients to understand their vision, meticulous planning and documentation, effective task management, and the ability to troubleshoot issues as they arise. Each project teaches me something new about balancing client expectations with technical feasibility.</p>
-                    <p>One of the most rewarding aspects is seeing a project come to life—from initial wireframes to the final deployment. The moment when a client sees their vision realized on screen makes all the late nights and debugging sessions worthwhile.</p>
-                    <p><strong>Current Focus Areas:</strong></p>
-                    <ul>
-                        <li>Improving performance optimization techniques</li>
-                        <li>Learning advanced React patterns and state management</li>
-                        <li>Exploring serverless architectures with Node.js</li>
-                        <li>Implementing comprehensive testing strategies</li>
-                    </ul>
-                </div>
-
-                <h3>Personal Interests</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h3>📚 Reading</h3>
-                        <p>I enjoy exploring books on history, economy, philosophy, and theology, which broaden my perspective and critical thinking skills.</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>💪 Fitness</h3>
-                        <p>Regular gym sessions help me maintain physical health and mental clarity, essential for the demanding field of IT.</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>🎮 Gaming</h3>
-                        <p>Both computer and board games provide entertainment while also sharpening problem-solving and strategic thinking abilities.</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>🌍 History & Culture</h3>
-                        <p>My interest in history and different cultures enriches my understanding of diverse perspectives in global tech environments.</p>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <!-- CONTACT PAGE WITH FORM -->
-        <section id="contact">
-            <article>
-                <h2>Get In Touch</h2>
-                <p>I'm always open to new opportunities and collaborations. Whether you have a project in mind, want to discuss technology, or just want to connect, feel free to reach out!</p>
-
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+44 7XXX XXXXXX">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <select id="subject" name="subject" required>
-                            <option value="">Select a subject</option>
-                            <option value="job">Job Opportunity</option>
-                            <option value="project">Project Collaboration</option>
-                            <option value="question">General Question</option>
-                            <option value="newsletter">Newsletter Subscription</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or inquiry..." required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" name="newsletter" value="yes">
-                            Subscribe to my newsletter for updates on projects and blog posts
-                        </label>
-                    </div>
-
-                    <button type="submit">Send Message</button>
-                </form>
-
-                <div class="sidebar" style="margin-top: 3rem;">
-                    <h3>Other Ways to Connect</h3>
-                    <div class="social-links">
-                        <p><strong>📧 Email:</strong> <a href="mailto:mr.miricteam@gmail.com">mr.miricteam@gmail.com</a></p>
-                        <p><strong>📱 Phone:</strong> <a href="tel:07759002979">07759 002979</a></p>
-                        <p><strong>📍 Location:</strong> London, Newham, United Kingdom</p>
-                        <p><strong>💻 GitHub:</strong> <a href="https://github.com/tolmir-git" target="_blank" rel="noopener">github.com/tolmir-git</a></p>
-                    </div>
-                </div>
-            </article>
-        </section>
-    </div>
-
-    <!-- Simple JavaScript for form validation feedback -->
-    <script>
-        // Add visual feedback for form validation
-        document.querySelectorAll('input, textarea, select').forEach(field => {
-            field.addEventListener('blur', function() {
-                if (this.validity.valid) {
-                    this.style.borderColor = '#10b981';
-                } else if (this.value !== '') {
-                    this.style.borderColor = '#ef4444';
-                }
+                <p>I have been working in web development for over 5 years, specializing in front-end technologies like HTML, CSS, and JavaScript. 
+                    I love learning new skills and staying up-to-date with the latest industry trends.</p>
+            </section>
+            <section id="hobbies">
+                <h2>My Portfolio</h2>
+                <p>Welcome to my portfolio! Here you can find some of my best work and projects I've completed over the years.</p>
+            </section>
+            <section id="blog">
+                <h2>Blog</h2>
+            </section>
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>You can reach me at: </p>
+            </section>
+        </main>
+        <script>
+            const hoverlink = document.querySelectorAll('#hoverlink');
+            const rightArrow = document.querySelectorAll('.right');
+            const leftArrow = document.querySelectorAll('.left');
+            function waitOneSecond() {
+                return new Promise(resolve => setTimeout(resolve, 100));
+            }
+            hoverlink.forEach((link, index) => {
+                link.addEventListener('mouseover', () => {
+                    async function executeWithWait() {
+                    await waitOneSecond();
+                    rightArrow[index].style.display = 'inline-block';
+                    leftArrow[index].style.display = 'inline-block';
+                    }
+                    executeWithWait();
+                });
+                link.addEventListener('mouseout', () => {
+                    async function executeWithWait() {
+                    await waitOneSecond();
+                    rightArrow[index].style.display = 'none';
+                    leftArrow[index].style.display = 'none';
+                    }
+                    executeWithWait();
+                });
             });
-        });
-
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! This is a demo form. In a real implementation, this would send your message to the server.');
-        });
-    </script>
-</body>
-</html>
+        </script>>
+    </body>
+</HTML>
