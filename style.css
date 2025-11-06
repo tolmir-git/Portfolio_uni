@@ -763,6 +763,7 @@ svg{
         grid-template-columns: 1fr;
         margin-left:0px;
     }
+}
 /*a very annoying set of working with skill items height on smaller screens*/
     
     @media (max-width: 655px) and (min-width:565px){
