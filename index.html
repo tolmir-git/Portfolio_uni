@@ -29,9 +29,8 @@
                 text-align: center;
                 background: linear-gradient(#3f64e9, #1824a9);
                 padding: 25px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-                
-                
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                position: relative;
             }
             .nav a {
                 color: white;
@@ -71,37 +70,59 @@
                 position: absolute;
                 margin-left: -9px;
             }
-            
 
-            /* Maybe for later, if I ever need the h1 tag back in the nav bar
-            nav h1{
-                font-size: 2rem;
-                margin-bottom: 10px;
-                padding: 20px; 
-                color: white;
+            /* Hamburger Menu Button */
+            .menu-toggle {
+                display: none;
+                flex-direction: column;
+                cursor: pointer;
+                background: none;
+                border: none;
+                padding: 10px;
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                transform: translateY(-50%);
             }
-            nav h1:hover{
-                text-decoration: bold;
-                background-color: rgba(240, 255, 255, 0.2);
-                border-radius: 10px;
-                border:0px;
-            }
-            */
 
+            .menu-toggle span {
+                width: 30px;
+                height: 3px;
+                background: white;
+                margin: 4px 0;
+                transition: 0.3s;
+                border-radius: 3px;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-6px, 6px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-6px, -6px);
+            }
+
+            .nav-links {
+                display: inline-block;
+            }
 
             /*Navbar CSS End*/
 
 
             /*section CSS*/
             section{
-                background:azure;
+                background:white;
                 margin:2rem;
                 padding:3rem;
                 border-radius:10px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 border:2px solid transparent;
                 transition:all 0.3s ease-in-out;
-                width:80%;
+                width:60%;
                 margin:auto;
                 margin-bottom:2rem;
             }
@@ -112,7 +133,19 @@
             section {
             display: none;
         }
+        section#Me {
+            display: block;
+        }
         section:target {
+            display: block;
+        }
+        section:target ~ #Me {
+            display: none;
+        }
+        body:has(section:target) section#Me {
+            display: none;
+        }
+        body:has(section:target#Me) section#Me{
             display: block;
         }
         section > h2 {
@@ -137,8 +170,6 @@
             z-index: 1;
         }
             /*section CSS End*/
-
-
 
 
             /*text animation (container per say) in home page */
@@ -235,12 +266,33 @@
             padding: 2px 6px;
             border-radius: 4px;
         }
+        .connect{
+            margin-top:30px;
+            margin-bottom: 20px;
+            border-radius:15px;
+            background-color: #f6f6f6;
+            padding: 2em;
+            border-left:5px solid #3fe9c4;
+        }
+        .connect li{
+            margin-bottom:10px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        .h5-item{
+            color:#3f64e9;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            font-weight:bolder ;
+        }
         /* Text and paragraph End*/
         /* Skills grid CSS */
         .skill-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.rem;
+            gap: 1rem;
             margin-top: 20px;
             justify-items: center;
         }
@@ -282,6 +334,29 @@
         #methodologies{
             background:linear-gradient(40deg,#EFEFBB,#D4D3DD);
         }
+        #technical-skills{
+            background:linear-gradient(to bottom, #FFEEEE, #DDEFBB);
+            margin-left: auto;
+            margin-right: auto;
+            min-height:250px;
+            
+        }
+        #soft-skills{
+            background:linear-gradient(to bottom, #DE6262, #FFB88C);
+            margin-left:auto;
+            margin-right:auto;
+            min-height:270px;
+        }
+        #project-management{
+            background:linear-gradient(to bottom, #ECE9E6, #FFFFFF);
+            margin-left:auto;
+            margin-right:auto;
+        }
+        #triangle-bottom{
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
         .skill-item h3 {
             margin-bottom: 10px;
             color: rgb(66, 3, 98);
@@ -298,6 +373,205 @@
         }
         
         /* Skills grid CSS End*/
+
+        /*Portfolio section CSS*/
+        #portfolio p, #portfolio ul {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-top: 10px;
+        }
+        section h4 {
+            color: black;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+            position: relative;
+            padding-bottom: 1rem;
+            z-index: 1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .project-grid {
+            gap: 1.5rem;
+            margin-top: 20px;
+        }
+        .project-item {
+            background-color: #fcfbfb;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            width: 100%;
+            margin:20px;
+            margin-left:0px;
+            border-left:5px solid #3f64e9;
+        }
+        .project-item:hover{
+            border-left:5px solid #1824a9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform:translateX(10px);
+            transition: all 0.15s ease-in-out;
+        }
+        .project-grid span{
+            display: inline-block;
+            background-color: #3f64e9;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin: 5px 5px 5px 0;
+            font-size: 0.9rem;
+        }
+        .project-grid span:hover{
+            background-color:#1824a9;
+            transition:0.3s;
+            color:#c2ea53;
+            transform: scale(110%);
+            /*
+            fun little thing, activate, if you want to see it: 
+            padding:2px 5px;
+            font-size:1rem;
+            */
+        }
+        .project-grid h5{
+            color: #222;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        .project-grid ul{
+            margin-top:10px;
+            margin-left:20px;
+
+        }
+        .project-grid li{
+            font-size: 1rem;
+            margin-bottom:5px;
+        }
+        .ptroject-item:hover{
+            border:3px solid #3f64e9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            transition: all 0.15s ease-in-out;
+        }
+        
+        .git-view{
+            display:inline-block;
+            margin-top:10px;
+            padding:8px 12px;
+            background-color:#3f64e9;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+            font-weight:bolder;
+        }
+        .git-view:hover{
+            background-color:#1824a9;
+            transition:0.3s;
+            color:#c2ea53;
+        }
+
+        /*Portfolio section CSS End*/
+        /* About section CSS */
+        #about-h{
+            margin-top:20px;
+            color:#222;
+        }
+        #about p, #about ul {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-top: 10px;
+        }
+        #about li{
+            margin-bottom:5px;
+            margin-left:20px;
+        }
+        
+        #year{
+            color: gray;
+            font-size: 0.9rem;
+            margin-left:10px;
+        }
+        .education-list{
+            margin-top:10px;
+            margin-bottom:20px;
+        }
+        .education-list-item{
+            position: relative;
+            padding-bottom: 2rem;
+            border-left: 3px solid #3f64e9;
+            padding-left: 2rem;
+        }
+        .education-list-item::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background: #f59e0b;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #ffffff;
+        }
+        #about-hp{
+            font-size:1.2rem;
+        }
+        #about-skills-grid{
+            margin-top:20px;
+            display:block;
+        }
+        
+        /* About section CSS End*/
+        /*Hobbies section CSS*/
+        #hobby-list{
+            margin-top:10px;
+            margin-bottom:20px;
+        }
+        #hobby-list li{
+            margin-bottom:5px;
+            margin-left:20px;
+            font-size: 1.1rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color:#333;
+        }
+        /*Hobbies section CSS End*/
+        /*Contact form CSS*/
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        #contact label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        #contact input, #contact textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+        #contact button {
+            padding: 10px 15px;
+            background-color: #3f64e9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #contact button:hover {
+            background-color: #1824a9;
+        }
+        #contact p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+        #red{
+            color:red;
+        }
         /* Footer CSS */
         .footer {
             position: relative;
@@ -327,18 +601,206 @@
         }
 
         /* Footer CSS End*/
+        /*Lower resolutions responsive styles*/
+        @media (min-width: 1201px) and (max-width: 1750px) {
+            section {
+                width: 70%;
+                margin: 1rem auto;
+                padding: 2rem;
+            }
+            .skill-item {
+                min-height: 220px;
+                padding:20px;
+            }
+            #row1, #row2 {
+                width: 85%;
+            }
+            .skill-item h3 {
+                padding-right:25px;
+
+            }
+            #triangle-bottom{
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 1200px) {
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+            #technical-skills{
+                min-height: 250px;
+            }
+            .skill-item {
+                min-height: 200px;
+                padding:20px;
+            }
+            section {
+                width: 80%;
+                margin: 1rem auto;
+                padding: 2rem;
+            }
+            #triangle-bottom{
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+                z-index: 1000;
+            }
+
+            .nav {
+                padding: 20px;
+            }
+
+            .nav.menu-open::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 997;
+            }
+
+            body.menu-open {
+                overflow: hidden;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background: linear-gradient(#3f64e9, #1824a9);
+                width: 80%;
+                max-width: 300px;
+                text-align: left;
+                transition: 0.3s ease-in-out;
+                box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+                padding: 70px 0 20px 0;
+                height: 100vh;
+                overflow-y: auto;
+                z-index: 998;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                display: block;
+                margin: 0;
+                padding: 15px 25px;
+                font-size: 1.1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .arrow {
+                display: none !important;
+            }
+
+            section {
+                width: 90%;
+                margin: 1rem auto;
+                padding: 2rem;
+            }
+
+            section > h2 {
+                font-size: 2rem;
+            }
+
+            .name_container h2 {
+                font-size: 2rem;
+            }
+
+            #container {
+                font-size: 24px;
+            }
+
+            #welcome_h3 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            #row1, #row2 {
+                width: 100%;
+            }
+
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+            #triangle-bottom{
+                margin-left:0px;
+                grid-template-columns: 1fr;
+            }
+            #technical-skills{
+                margin-left: auto;
+                margin-right: auto;
+                grid-template-columns: 1fr;
+                margin-left:0px;
+            }
+            #soft-skills{
+                margin-left: auto;
+                margin-right: auto;
+                grid-template-columns: 1fr;
+                margin-left:0px;
+            }
+            #project-management{
+                margin-left: auto;
+                margin-right: auto;
+                grid-template-columns: 1fr;
+                margin-left:0px;
+            }
+
+        }
+        @media (max-width: 655px) and (min-width:565px){
+            #soft-skills{
+                min-height:350px;
+            }
+        }
+        @media (max-width:769px) and (min-width:655px){
+            #soft-skills{
+                min-height:300px;
+            }
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            section {
+                width: 80%;
+            }
+
+            .nav a {
+                margin: 0 10px;
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
         </style>
     </head>
     <body>
         <header>
             
             <nav class="nav">
-                <i class="arrow right" id="arrow"></i><a href="#Me" id="hoverlink">Myroslav Kuzmych</a><i class="arrow left" id="arrow"></i>
-                <i class="arrow right" id="arrow"></i><a href="#portfolio" id="hoverlink">Portfolio</a><i class="arrow left" id="arrow"></i>
-                <i class="arrow right" id="arrow"></i><a href="#about" id="hoverlink">About</a><i class="arrow left" id="arrow"></i>
-                <i class="arrow right" id="arrow"></i><a href="#hobbies" id="hoverlink">Hobbies</a><i class="arrow left" id="arrow"></i>
-                <i class="arrow right" id="arrow"></i><a href="#blog" id="hoverlink">Blog</a><i class="arrow left" id="arrow"></i>
-                <i class="arrow right" id="arrow"></i><a href="#contact" id="hoverlink">Contact</a><i class="arrow left" id="arrow"></i>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-links" id="navLinks">
+                    <i class="arrow right" id="arrow"></i><a href="#Me" id="hoverlink">Myroslav Kuzmych</a><i class="arrow left" id="arrow"></i>
+                    <i class="arrow right" id="arrow"></i><a href="#portfolio" id="hoverlink">Portfolio</a><i class="arrow left" id="arrow"></i>
+                    <i class="arrow right" id="arrow"></i><a href="#about" id="hoverlink">About</a><i class="arrow left" id="arrow"></i>
+                    <i class="arrow right" id="arrow"></i><a href="#hobbies" id="hoverlink">Hobbies</a><i class="arrow left" id="arrow"></i>
+                    <i class="arrow right" id="arrow"></i><a href="#blog" id="hoverlink">Blog</a><i class="arrow left" id="arrow"></i>
+                    <i class="arrow right" id="arrow"></i><a href="#contact" id="hoverlink">Contact</a><i class="arrow left" id="arrow"></i>
+                </div>
             </nav>
 
         </header>
@@ -406,33 +868,334 @@
                             </ul>
                         </div>
                     </div>
-
+                </div>
+                <div class="connect">
+                    <h5 class="h5-item">Connect with Me</h5>
+                    <ul>
+                        <li><strong><strong>📧Email:   <a href="mailto:mr.miricteam@gmail.com" style="color: blueviolet; font-weight: 800;text-decoration:none;">mr.miricteam@gmail.com</a></li>
+                        <li>📈LinkedIn:   <a href="https://www.linkedin.com/in/myroslav-kuzmych-1ba458359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+                            target="_blank" rel="noopener" style="color: blueviolet; font-weight: 800;text-decoration:none;">Myroslav Kuzmych</a></li>
+                        <li>🎯GitHub:   <a href="https://github.com/tolmir-git" style="color: blueviolet; font-weight: 800;text-decoration:none;">tolmir-git </a></li>
+                        <li>📱Phone:   <a href="tel:07759002979" style="color: blueviolet; font-weight: 800;text-decoration:none;">07759002979</a></li>
+                        <li>📍Location:   </strong></strong> <b style="color: blueviolet; font-weight: 800;text-decoration:none;">London, Newham, UK </b></li>
+                    </ul>
                 </div>
 
             </section>
             <section id="portfolio">
-                <h2>Portfolio</h2>
-                <ul>
-                    <li>Project 1: A responsive website for a local business.</li>
-                    <li>Project 2: An e-commerce platform for handmade crafts.</li>
-                    <li>Project 3: A personal blog about technology and programming.</li>
-                </ul>
+                <h4>My Projects</h4>
+                <p>Here's the link to my GitHub profile where you can explore my projects and code samples
+                <a href="https://github.com/tolmir-git" target="_blank" rel="noopener" style="color: blueviolet; font-weight: 800;text-decoration:underline;">GitHub profile</a> for more!</p>
+                <div class="project-grid">
+                    <div class="project-item">
+                        <article>
+                            <h5 class="h5-item">🔒 Sharp Cyber Security Porject</h5>
+                            <p>📅 2023-2024 🏢 South Essex College</p>
+                            <p>Comprehensive cyber security implementation securing 15 rooms with modern technologies and protocols. 
+                                This project demonstrates my ability to design and implement enterprise-level security solutions.
+                            </p>
+                            <span>Cyber Security</span>
+                            <span>Network Security</span>
+                            <span>Security Protocols</span>
+                            <span>Firewalls</span>
+                            <span>GDPR Complience</span>
+                            <span>DDoS Protection</span>
+                                <h5>Key Achievements:</h5>
+                            <ul>
+                                <li>Implemented reliable firewalls and protocols to prevent DDoS attacks.</li>
+                                <li>Ensured GDPR compliance and Data Protection Act adherence.</li>
+                                <li>Developed comprehensive cyber security and business policies.</li>
+                                <li>Balanced security with usability and comfort.</li>
+                        </article>
+                    </div>
+                    <div class="project-item">
+                        <article>
+                            <h5 class="h5-item">💻 Sharp Virtual Machine Showcase</h5>
+                            <p>📅 2023-2024 🏢 South Essex College</p>
+                            <p>Created an artificial building environment showcasing hundreds of Sharp products using Virtual Machine technology, 
+                                demonstrating advanced virtualization skills and architectural planning.</p>
+                            <span>Virtual Machines</span>
+                            <span>Architectural Design</span>
+                            <span>Product Showcasing</span>
+                            <span>Security Design</span>
+                                <h5>Key Features:</h5>
+                            <ul>
+                                <li>Multi-layered architecture using various technologies and frameworks.</li>
+                                <li>Comprehensive security implementation.</li>
+                                <li>Strategic advertising and promotion planning.</li>
+                                <li>Optimized for user engagement and page views.</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <div class="project-item">
+                        <article>
+                            <h5 class="h5-item">🌐 Business Website Development</h5>
+                            <p>📅 2025-Present 🏢 Freelance/Team Projects</p>
+                            <p>Leading and coordinating development of multiple business websites using modern web technologies. 
+                                Managing full project lifecycle from planning to deployment and maintenance.</p>
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>Project Management</span>
+                                <h5>Responsibilities:</h5>
+                            <ul>
+                                <li>Client communication and requirements gathering.</li>
+                                <li>Project planning, documentation, and task management.</li>
+                                <li>Code development and implementation.</li>
+                                <li>Deployment and production support.</li>
+                                <li>Ongoing maintenance and troubleshooting</li>
+                                <a href="https://github.com/tolmir-git" class="git-view">View on GitHub →</a>
+                            </ul>
+                        </article>
+                    </div>
+                    <div class="project-item">
+                        <article>
+                            <h5 class="h5-item">💻 More Projects on GitHub</h5>
+                            <p>I'm constantly working on new projects and contributing to open source. Visit my GitHub profile to see my latest work, including:</p>
+                            <span>Python Scripts</span>
+                            <span>Web Applications</span>
+                            <span>API Development</span>
+                            <span>Database Design</span>
+                            <span>Testing & QA</span>
+                            <ul>
+                            <a href="https://github.com/tolmir-git" class="git-view">View on GitHub →</a>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
             </section>
             <section id="about">
-                <h2>About Me</h2>
-                <p>I have been working in web development for over 5 years, specializing in front-end technologies like HTML, CSS, and JavaScript. 
-                    I love learning new skills and staying up-to-date with the latest industry trends.</p>
+                <h4>About Me</h4>
+                <p>I'm a passionate <b id="highlight">Computer Science student</b> at Westminster University with a strong foundation in IT and software development. 
+                    Born on December 14, 2005, I've dedicated myself to building a career in technology while developing valuable real-world skills.</p>
+                <h5 class="h5-item" id="about-h">🎓 Education Journey</h5>
+                <div class="education-list">
+                    <div class="education-list-item">
+                    <h5 class="h5-item" id="about-hp">Brovary School №3 <i id="year"><time datetime="2012-2021">(2012-2021)</time></i></h5>
+                    <p><b>Primary and Secondary Education</b></p>
+                    </div>
+                    <div class="education-list-item">
+                    <h5 class="h5-item" id="about-hp">Kyiv College of Hotel Management <i id="year"><time datetime="2021-2024">(2021-2024)</time></i></h5>
+                    <p><b>Computer Engineering</b> - Online - Offline studies <i>quit</i></p>
+                    </div>
+                    <div class="education-list-item">
+                    <h5 class="h5-item" id="about-hp">South Essex College <i id="year"><time datetime="2022-2024">(2022-2024)</time></i></h5>
+                    <p><b>IT Diploma</b></p>
+                    </div>
+                    <div class="education-list-item">
+                    <h5 class="h5-item" id="about-hp">University of Westminster <i id="year"><time datetime="2024-Present">(2024-Present)</time></i></h5>
+                    <p><b>Computer Science Bachelor's Degree</b> - Full-time studies - Currently in 2nd year</p>
+                    </div>
+                </div>
+                <h5 class="h5-item" id="about-h">💼 Work Experience</h5>
+                <p>Over the past three years, I've gained an immense skillset in the hospitality sector, which has equipped me with:</p>
+                <ul>
+                    <li>Networking & Communication: Spoken with thousands of clients, enhancing my interpersonal skills</li>
+                    <li>Problem-Solving: Collaborated with hundreds of staff members to resolve customer issues</li>
+                    <li>Attention to Detail: Developed precision essential for QA testing and data entry</li>
+                    <li>Stress Resistance: Thrived in fast-paced environments requiring quick thinking and action</li>
+                    <li>Attention to detail and quality assurance</li>
+                </ul>
+                <h5 class="h5-item" id="about-h">Core Skills</h5>
+                <div class="skill-grid" id="about-skills-grid">
+                    <div class="skill-item" id="technical-skills">
+                        <h3 >Technical Skills</h3>
+                        <ul>
+                            <li>Python, Java, HTML5, CSS3, JavaScript</li>
+                            <li>React, Node.js</li>
+                            <li>Git & GitHub</li>
+                            <li>Cyber Security Fundamentals</li>
+                        </ul>
+                    </div>
+                    <div id="triangle-bottom">
+                        <div class="skill-item" id="soft-skills">
+                            <h3 >Soft Skills</h3>
+                            <ul>
+                                <li>Effective Communication</li>
+                                <li>Team Collaboration</li>
+                                <li>Problem-Solving</li>
+                                <li>Time Management</li>
+                                <li>Adaptability</li>
+                            </ul>
+                        </div>
+                        <div class="skill-item" id="project-management">
+                            <h3 >Project Management</h3>
+                            <ul>
+                                <li>Agile Methodologies</li>
+                                <li>PRINCE2 Fundamentals</li>
+                                <li>Waterfall Project Management</li>
+                                <li>Task Prioritization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            <h5 class="h5-item" id="about-h">Achievements</h5>
+                <ul>
+                    <li>Jack Petchey Achievement Award for studying and communicational excellence.</li>
+                    <li>Participated in Maths, History and English competitions back in the home-town of Brovary.</li>
+                    <li>Completed advanced cyber security and virtual machine projects at South Essex College.</li>
+                    <li>Successfully managed multiple client website projects simultaneously</li>
+                </ul>
             </section>
             <section id="hobbies">
-                <h2>My Portfolio</h2>
-                <p>Welcome to my portfolio! Here you can find some of my best work and projects I've completed over the years.</p>
+                <h4>Hobbies and Interests</h4>
+                <p>This is a page about what am I personally attracted to apart from coding and IT, who I am actually as a person instead of just a mindless computer-plancton.</p>
+                <h5 class="h5-item" id="about-h">History and Politics</h5>
+                <img src="https://cdn.pixabay.com/photo/2021/12/29/18/59/st-petersburg-6902540_1280.jpg" alt="History and Politics" style="width:100%;max-width:600px;margin-top:10px;margin-bottom:10px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+                <p>Everything in this world is highly interconnected, same applies for the mostly un-pragmatic studies, like History, Theology, Philosophy and Politics
+                    that are indebded into pragmatic subjects, like Economics, Statistics and Innovative Technologies that are all used by the politicians and philosophers and deep thinkers.
+                    Mostly, human-kind have absolutelly abused the power and wisdom of the pragmatic school of thought. 
+                    And in my personal research, I have went through dozens of books and articles on this matter, which include:
+                </p>
+                <ul id="hobby-list">
+                    <li><b>Holy Bible, Holy Quran, Tanah, Bhagavad Gita</b> and some additions to these</li>
+                    <li>Descartes, Aristocle, Plato, Nietzsche, Schopenhauer, Sartre, Jung, Freud and Marx, and many-many more</li>
+                    <li>Austrian and English economic schools, inlcuding Jean-Baptiste, Menger, Heyek, Adam Smith etc.</li>
+                </ul>
+                <img src="https://cdn.pixabay.com/photo/2015/01/04/10/30/hercules-588138_1280.jpg" alt="History and Politics" style="width:100%;max-width:300px;margin-top:10px;margin-bottom:10px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+                <p>And when actually undertanding both the pragmatic and un-pragmatic side of thoughts, 
+                    which is why I study maths and computer science, you can understand the reality around yourself and be actually sane in its definitionative meaning.
+                </p>
+                <h5 class="h5-item" id="about-h">Fitness</h5>
+                <p>Keeping yourself good-looking and healthy is the main way to gain true happiness, face actual challanges in life and meet the best people in those places, 
+                    as I've been going to the gym for 2.5 years and doing boxing for 1.5 years respectively, I'm always on track with everything, having deep knowledge and understanding of
+                human biology and thermodynamics
+                </p>
+                <h5 class="h5-item" id="about-h">Gaming</h5>
+                <p>As any boy trapped in a men's body, I play video games, mostly mapped strategy games that are tied to History and Politics. 
+                    Also, something that inspires me in the bigger friend companies is to play board games, they're both entertaining and demand high strategic thinking.
+                </p>
+                <img src="https://cdn.pixabay.com/photo/2024/11/08/07/29/ai-generated-9182741_960_720.png" alt="History and Politics" style="width:100%;max-width:300px;margin-top:10px;margin-bottom:10px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+                <p>One of the oldest board games I play to this day is a simple game of chess. 
+                    Elegant, Smart, Intelligent and just Beatiful (also makes you feel like a mindless peace of wood sometimes)
+                </p>
             </section>
             <section id="blog">
-                <h2>Blog</h2>
+                <h4>Personal Blog</h4>
+                <div class="project-grid">
+                    <div class="project-item">
+                        <h5 class="h5-item">📝 Buildying Secure Web Applications: Lessons from Sharp Porject</h5>
+                        <p>Posted on June 15, 2024 (include time)</p>
+                        <p>During my time at South Essex College, I had the incredible opportunity to work on the Sharp cybersecurity project, 
+                            which challenged me to secure 15 rooms using cutting-edge technologies. 
+                            This experience taught me invaluable lessons about network security, GDPR compliance, and the importance of comprehensive security policies.
+                        </p>
+                        <p>
+                            One of the most significant challenges was implementing reliable firewalls and protocols to make the network impenetrable to DDoS attacks. 
+                            I learned that security isn't just about the technical implementation—it's about understanding potential vulnerabilities and proactively addressing them. 
+                            The project required me to balance security with usability, ensuring that while the rooms were protected, 
+                            they remained comfortable and accessible for legitimate users.
+                        </p>
+                        <p>
+                            The experience of working with Data Protection Act regulations and GDPR laws gave me practical insight into the legal aspects of IT security. 
+                            This knowledge is invaluable in today's digital landscape where data breaches can have severe consequences for both individuals and organizations.
+                        </p>
+                        <h4>Key Takeaways:</h4>
+                        <ul>
+                            <li>Security must be layered—no single solution is sufficient.</li>
+                            <li>Understanding regulations like GDPR is as important as technical skills.</li>
+                            <li>User experience should never be sacrificed for security.</li>
+                            <li>Documentation and policies are crucial for maintaining security standards</li>
+                        </ul>
+                    </div>
+                    <div class="project-item">
+                        <h5 class="h5-item">🌐 Creating Engaging Virtual Environments: Insights from the Sharp VM Showcase</h5>
+                        <p>Posted on May 10, 2024 (include time)</p>
+                        <p>
+                            The Sharp Virtual Machine Showcase project was a fascinating journey into the world of virtualization and architectural design. 
+                            Tasked with creating an artificial building environment to showcase hundreds of Sharp products, I had to think creatively about how to structure the virtual space.
+                        </p>
+                        <p>
+                            The multi-layered architecture I developed utilized various technologies and frameworks, allowing for a dynamic and interactive user experience. 
+                            Security was a top priority, and I implemented comprehensive measures to protect the virtual environment from potential threats.
+                        </p>
+                        <p>
+                            Advertising and promotion were also key components of the project. I strategized on how to effectively market the showcased products within the virtual space, 
+                            optimizing for user engagement and page views.
+                        </p>
+                        <h4>Key Takeaways:</h4>
+                        <ul>
+                            <li>Virtualization offers endless possibilities for creative expression.</li>
+                            <li>Security must be integrated into every layer of design.</li>
+                            <li>Effective marketing strategies can significantly enhance user engagement.</li>
+                            <li>Collaboration and planning are essential for complex projects.</li>
+                        </ul>
+                    </div>
+                    <div class="project-item">
+                        <h5 class="h5-item">My Journey in Full-Stack Development: From Concept to Deployment</h5>
+                        <p>Posted on January 20, 2025 (include time)</p>
+                        <p>Since the start of 2025, I've been leading the development of several business websites, 
+                            and the journey has been both challenging and rewarding. Working with HTML, CSS, JavaScript, React, and Node.js 
+                            has given me a comprehensive understanding of modern web development.
+                        </p>
+                        <p>
+                           What I've learned is that successful web development goes far beyond just writing code. 
+                           It requires constant communication with clients to understand their vision, meticulous planning and documentation, 
+                           effective task management, and the ability to troubleshoot issues as they arise. Each project teaches me something new 
+                           about balancing client expectations with technical feasibility.
+                        </p>
+                        <p>
+                            One of the most rewarding aspects is seeing a project come to life—from initial wireframes to the final deployment. 
+                            The moment when a client sees their vision realized on screen makes all the late nights and debugging sessions worthwhile.
+                        </p>
+                        <h4>Current Focus Areas:</h4>
+                        <ul>
+                            <li>Improving performance optimization techniques.</li>
+                            <li>Learning advanced React patterns and state management.</li>
+                            <li>Exploring serverless architectures with Node.js.</li>
+                            <li>Implementing comprehensive testing strategies.</li>
+                        </ul>
+
+                    </div>
             </section>
             <section id="contact">
-                <h2>Contact</h2>
-                <p>You can reach me at: </p>
+                <h4>Get in touch with me!</h4>
+                <p>I'm always open to new ways and approaches, new challanges attract me. I seek to collaborate and make a project with you! </p>
+                <p>Last thing left? Fill up this form, and I'm gonna reach you back soon.</p>
+                <form action="https://formspree.io/f/mvgverjy" method="POST" class="contact-form" class="form">
+                    <div class="form-item">
+                        <label for="name">FullName:<i id="red">*</i></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="email">Email:<i id="red">*</i></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="phone">Phone Number:<i id="red">*</i></label>
+                        <textarea id="phone" name="phone" rows="1" required></textarea>
+                    </div>
+                    <div class="form-item">
+                        <label for="subject">Subject:<i id="red">*</i></label>
+                        <textarea id="subject" name="subject" rows="1" required></textarea>
+                    </div>
+                    <div class="form-item">
+                        <label for="message">Message:<i id="red">*</i></label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-item">
+                        <label>
+                            <input type="checkbox" name="subscription" value="yes" style="border-color: rgb(16, 185, 129);"> 
+                            Subscribe to my newsletter for updates on projects, blogs and personal opinions
+                        </label>
+                    </div>
+                    <div class="form-item">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </form>
+                <div class="connect">
+                    <h5 class="h5-item">Optionally, Connect with Me in another way!</h5>
+                    <ul>
+                        <li><strong><strong>📧Email:   <a href="mailto:mr.miricteam@gmail.com" style="color: blueviolet; font-weight: 800;text-decoration:none;">mr.miricteam@gmail.com</a></li>
+                        <li>📈LinkedIn:   <a href="https://www.linkedin.com/in/myroslav-kuzmych-1ba458359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+                            target="_blank" rel="noopener" style="color: blueviolet; font-weight: 800;text-decoration:none;">Myroslav Kuzmych</a></li>
+                        <li>🎯GitHub:   <a href="https://github.com/tolmir-git" style="color: blueviolet; font-weight: 800;text-decoration:none;">tolmir-git </a></li>
+                        <li>📱Phone:   <a href="tel:07759002979" style="color: blueviolet; font-weight: 800;text-decoration:none;">07759002979</a></li>
+                        <li>📍Location:   </strong></strong> <b style="color: blueviolet; font-weight: 800;text-decoration:none;">London, Newham, UK </b></li>
+                    </ul>
+                </div>
+
             </section>
             
             
@@ -450,6 +1213,41 @@
                 </div>
             </footer>
         <script>
+            // Hamburger menu functionality
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const nav = document.querySelector('.nav');
+            const body = document.body;
+
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                nav.classList.toggle('menu-open');
+                body.classList.toggle('menu-open');
+            });
+
+            // Close menu when clicking on a link
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    nav.classList.remove('menu-open');
+                    body.classList.remove('menu-open');
+                });
+            });
+
+            // Close menu when clicking outside (on overlay)
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle') && navLinks.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    nav.classList.remove('menu-open');
+                    body.classList.remove('menu-open');
+                }
+            });
+
+            // Original arrow hover functionality (desktop only)
             const hoverlink = document.querySelectorAll('#hoverlink');
             const rightArrow = document.querySelectorAll('.right');
             const leftArrow = document.querySelectorAll('.left');
@@ -458,18 +1256,20 @@
             }
             hoverlink.forEach((link, index) => {
                 link.addEventListener('mouseover', () => {
-                    async function executeWithWait() {
-                    await waitOneSecond();
-                    rightArrow[index].style.display = 'inline-block';
-                    leftArrow[index].style.display = 'inline-block';
+                    if (window.innerWidth > 768) {
+                        async function executeWithWait() {
+                            await waitOneSecond();
+                            rightArrow[index].style.display = 'inline-block';
+                            leftArrow[index].style.display = 'inline-block';
+                        }
+                        executeWithWait();
                     }
-                    executeWithWait();
                 });
                 link.addEventListener('mouseout', () => {
                     async function executeWithWait() {
-                    await waitOneSecond();
-                    rightArrow[index].style.display = 'none';
-                    leftArrow[index].style.display = 'none';
+                        await waitOneSecond();
+                        rightArrow[index].style.display = 'none';
+                        leftArrow[index].style.display = 'none';
                     }
                     executeWithWait();
                 });
